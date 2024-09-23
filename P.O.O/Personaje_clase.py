@@ -26,6 +26,6 @@ class Personaje:
             self.vida = self.vida - cantidad
     
     def mostrar_info(self): 
-        print
+        print   
 
     

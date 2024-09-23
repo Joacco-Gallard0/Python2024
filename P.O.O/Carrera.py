@@ -10,6 +10,10 @@ menu= '''
 
 cantidadPersonaje = 0
 personajes = []
+    
+def mostrar_personajes():
+    if cantidadPersonaje == 0:
+        print("No hay personajes creados")
 
 while True:
     print(menu)
@@ -31,13 +35,29 @@ while True:
     
     
     elif opcion == 2:
-        if cantidadPersonaje == 0:
-            print("No hay personajes creados para poder jugar")
+        if cantidadPersonaje < 2:
+            print("Se necesita dos personajes para poder jugar")
         else:
             print("Iniciando la carrera con los siguientes personajes:")
-            for personaje in personajes:
-                print(f"*{personaje.nombre}")
-        continue
+            mostrar_personajes()
+        
+        atacante_idx = int(input("Seleccione el numero del personaje atacante que desea jugar: ")) - 1
+        defensor_idx = int(input("Seleccione el numero del personaje defensor que desea jugar: ")) - 1
+
+        if 0 <= atacante_idx < cantidadPersonaje and 0<= defensor_idx < cantidadPersonaje:
+            atacante = personajes[atacante_idx]
+            defensor = personajes[defensor_idx]
+
+            if atacante.estado and defensor.estado:
+                atacante.atacar(defensor)
+            else:
+                print("Uno o ambos personajes estan muertos y no podran pelear")
+        else:
+            print("Seleccione incorrecta. Pruebe de nuevo")
+        
+        print("\nEstado actualizado de los personajes: ")
+        mostrar_personajes()
+
 
     elif opcion == 3:
         print("Game over")
