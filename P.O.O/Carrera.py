@@ -26,7 +26,8 @@ while True:
         resistencia = int(input("Agrege la resistencia que desea: "))
         fuerza = int(input("Ahora por ultimo pongale una fuerza deseada: "))
     
-        nuevo_personaje = Personaje(nombre, altura, velocidad, velocidad, resistencia, fuerza)
+        nuevo_personaje = Personaje(nombre, altura, velocidad, resistencia, fuerza)
+
         personajes.append(nuevo_personaje)
 
         cantidadPersonaje += 1
