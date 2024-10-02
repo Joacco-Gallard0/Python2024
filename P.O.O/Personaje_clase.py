@@ -16,16 +16,14 @@ class Personaje:
     def atacar(self, otro_personaje):   
         if  self.estado:
             danio = self.fuerza - (otro_personaje.resistencia)
-            print(f"{self.nombre} atacar a {otro_personaje.nombre} causando {danio} de daño")
+            print(f"{self.nombre} atacar a {otro_personaje.nombre} dejandolo a {danio} de vida")
             otro_personaje.recibir_dano(danio)
 
-            danio = self.vida -otro_personaje.resistencia 
+            danio = self.vida - otro_personaje.resistencia 
             if danio >= 0:
                 self.vida = self.vida - danio
         else:   
             print(f"{self.nombre} esta muerto y no puede atacar.")
-
-        
 
     def recibir_dano(self, cantidad):
         self.vida -= cantidad
@@ -36,6 +34,3 @@ class Personaje:
         
     def mostrar_info(self): 
         print   
-    
-    
-    

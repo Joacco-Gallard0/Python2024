@@ -39,8 +39,8 @@ while True:
         if cantidadPersonaje < 2:
             print("Se necesita dos personajes para poder jugar")
         else:
-            print("Iniciando la carrera con los siguientes personajes:")
-            mostrar_personajes()
+            print(f"Iniciando la carrera con los siguientes personajes: {cantidadPersonaje}")
+ 
         
         atacante_idx = int(input("Seleccione el numero del personaje atacante que desea jugar: ")) - 1
         defensor_idx = int(input("Seleccione el numero del personaje defensor que desea jugar: ")) - 1
@@ -58,7 +58,7 @@ while True:
         
         print("\nEstado actualizado de los personajes: ")
         mostrar_personajes()
-
+        
 
     elif opcion == 3:
         print("Game over")
@@ -66,7 +66,7 @@ while True:
     
     else:
         print("Opción incorrecta, pruebe otra vez")
-        
+
 
 
 
