@@ -1,0 +1,20 @@
+document.addEventListener("DOMContentLoaded", function(){
+    const inputBusqueda = document.getElementById("search-input");
+    const botonesVet = document.querySelectorAll(".veterinarias-list button");
+
+    inputBusqueda.addEventListener("input", function() {
+        filtroVetLocalidad();
+    });
+
+    function filtroVetLocalidad() {
+        const texto = inputBusqueda.Value.toLowerCase();
+        botonesVet.forEach(boton => {
+            const localidad = boton.getAttribute("data-localidad").toLowerCase();
+            if (localidad.includes(texto)) {
+                boton.style.display = "";
+            } else {
+                boton.style.display = "none";
+            }
+        });
+    }
+});
