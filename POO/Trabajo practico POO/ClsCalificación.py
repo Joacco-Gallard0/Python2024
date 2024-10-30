@@ -22,7 +22,7 @@ def obtener_Calificaciones():
     c = conn.cursor()
     
     c.execute('SELECT * FROM Calificaciones')
-    clasificaciones = c.fetchall()
+    calificaciones = c.fetchall()
     conn.close()
 
-    return Calificacion
+    return calificaciones

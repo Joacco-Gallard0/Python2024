@@ -1,8 +1,8 @@
 import sqlite3
-from ClsEstudiante import Estudiante
-from ClsCalificación import Calificacion
-from ClsMateria import Materia
-from ClsProfesor import Profesor
+from ClsEstudiante import Estudiante, obtener_estudiantes
+from ClsCalificación import Calificacion, obtener_Calificaciones
+from ClsMateria import Materia, obtener_Materias
+from ClsProfesor import Profesor, obtener_profesores
 
 def conectar_db():
     conn = sqlite3.connect('escuela.db')
@@ -23,37 +23,41 @@ def main():
         print("7. Mostrar materias")
         print("8. Mostrar calificaiones")
         print("9. Salir")
-        opcion = input("Seleccione una opción")
+        opcion = input("Seleccione una opción:")
 
         if opcion == '1':
-            DNI = input("Nombre del estudiante: ")
+            nombre = input("Nombre del estudiante: ")
+            edad = input("Edad del estudiante: ")
+            estudiante_id = input("Id del estudiante: ")
+            apellido = input("Apellido del estudiante: ")
+            curso = input("Año del curso del estudiante: ")
+            Estudiante.guardar(nombre, edad, estudiante_id, apellido, curso)
+        elif opcion == '2':
+            nombre = input("Nombre del profesor: ")
+            apellido = input("Apellido del profesor: ")
+            profesor_id = input ("Id del profesor:")
+            curso = input("Año del curso del profesor: ")
+            materia = input("Materia que da el profesor: ")
+            Profesor.guardar(nombre, apellido, profesor_id, curso, materia)
+        elif opcion == '3':
             nombre = input("Nombre del esudiante: ")
-            edad = input("Nombre del esudiante: ")
-            fecha_de_nacimiento = input("Nombre del esudiante: ")
-            apellido = input("Nombre del esudiante: ")
-            estado = input("Nombre del esudiante: ")
-            curso = input("Nombre del esudiante: ")
-            Estudiante.guardar(DNI, nombre, edad, fecha_de_nacimiento, apellido, estado, curso)
-        if opcion == '2':
-            nombre = input("Nombre del esudiante: ")
-            nombre = input("Nombre del esudiante: ")
-            nombre = input("Nombre del esudiante: ")
-            
-        if opcion == '3':
-            nombre = input("Nombre del esudiante: ")
-            nombre = input("Nombre del esudiante: ")
-        if opcion == '4':
-            nombre = input("Nombre del esudiante: ")
-            nombre = input("Nombre del esudiante: ")
-        if opcion == '5':
-            nombre = input("Nombre del esudiante: ")
-        if opcion == '6':
-            nombre = input("Nombre del esudiante: ")
-        if opcion == '7':
-            nombre = input("Nombre del esudiante: ")
-        if opcion == '8':
-            nombre = input("Nombre del esudiante: ")
-        if opcion == '9':
+            materia_id = input("Id de materia: ")
+            curso = input("Año del curso: ")
+            Materia.guardar(nombre, materia_id, curso)
+        elif opcion == '4':
+            estudiante_id = input("Id del estudiante: ")
+            materia_id = input("Id de materia: ")
+            nota = input ("Ingrese la nota del estudiante")
+            Calificacion.guardar(estudiante_id, materia_id, nota)
+        elif opcion == '5':
+            obtener_estudiantes(conn)
+        elif opcion == '6':
+            obtener_profesores(conn)
+        elif opcion == '7':
+            obtener_Materias(conn)
+        elif opcion == '8':
+            obtener_Calificaciones(conn)
+        elif opcion == '9':
             nombre = input("Nombre del esudiante: ")
             print("saliendo del sistema...")
             break
