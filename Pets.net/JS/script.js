@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     function filtroVetLocalidad() {
-        const texto = inputBusqueda.Value.toLowerCase();
+        const texto = inputBusqueda.value.toLowerCase();
         botonesVet.forEach(boton => {
             const localidad = boton.getAttribute("data-localidad").toLowerCase();
             if (localidad.includes(texto)) {
@@ -17,4 +17,4 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         });
     }
-});
+});s
