@@ -21,7 +21,7 @@ def main():
         print("5. Mostrar estudiantes")
         print("6. Mostrar profesores")
         print("7. Mostrar materias")
-        print("8. Mostrar calificaiones")
+        print("8. Mostrar calificaciones")
         print("9. Salir")
         opcion = input("Seleccione una opción:")
 
@@ -50,15 +50,15 @@ def main():
             nota = input ("Ingrese la nota del estudiante: ")
             Calificacion.guardar(conn, estudiante_id, materia_id, nota)
         elif opcion == '5':
-            obtener_estudiantes(conn)
+            Estudiante.obtener_estudiantes(conn)
         elif opcion == '6':
-            obtener_profesores(conn)
+            Profesor.obtener_profesores(conn)
         elif opcion == '7':
-            obtener_Materias(conn)
+            Materia.obtener_Materias(conn)
         elif opcion == '8':
-            obtener_Calificaciones(conn)
+            Calificacion.obtener_Calificaciones(conn)
         elif opcion == '9':
-            nombre = input("Nombre del esudiante: ")
+            nombre = input("Nombre del estudiante: ")
             print("saliendo del sistema...")
             break
         else:
