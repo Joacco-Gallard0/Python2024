@@ -58,11 +58,10 @@ def main():
         elif opcion == '8':
             Calificacion.obtener_Calificaciones(conn)
         elif opcion == '9':
-            nombre = input("Nombre del estudiante: ")
             print("saliendo del sistema...")
             break
         else:
-            print("Opcion no valida, intente nuevamente.")
+            print("Opción no valida, intente nuevamente.")
 
     conn.close()
 
